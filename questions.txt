@@ -5,3 +5,5 @@ What should be printed out for customer information?
 <list all of a customer's accounts>
 
 Should CD account be able to be withdrawn from?
+
+How often should CD account be charged interest?
