@@ -39,7 +39,7 @@ private:
     vector <Transaction*> transactionsList;
     vector <Customer*> customerList;
     
-}
+};
 
 #endif /* ACCOUNT_H */
 
