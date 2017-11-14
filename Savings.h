@@ -13,7 +13,7 @@ class Savings : public Account {
 	
 public:
 	explicit Savings(); //default constructor
-	virtual ~Savings() = default //default destructor
+	virtual ~Savings() = default; //default destructor
 	
 	void setInterestRate(const double&); //set the interest rate for the account
 	
