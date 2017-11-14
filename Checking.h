@@ -13,6 +13,7 @@
 class Checking : class Account{
     
 public:
+    Checking();
     void setMontlyFee();
     float getMonthlyFee(float f);
     
