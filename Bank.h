@@ -5,12 +5,12 @@
 
 class Bank {
 private:
-  std::vector<Customer> customers;
-  std::vector<Transaction> transactions;
+  std::vector<Customer*> customers;
+  std::vector<Transaction*> transactions;
   
 public:
   Bank();
-  //~Bank();
+  ~Bank();
 
   // TODO: add args when known
   void addTransaction(double startBalance, const Date &date, const std::string &payee);

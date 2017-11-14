@@ -1,0 +1,7 @@
+What should the monthly statement consist of?
+
+What should be printed out for customer information?
+<print a list of customers with the total value of all of their accounts>
+<list all of a customer's accounts>
+
+Should CD account be able to be withdrawn from?
