@@ -14,8 +14,8 @@ class Checking : class Account{
     
 public:
     Checking();
-    void setMontlyFee();
-    float getMonthlyFee(float f);
+    void setMontlyFee(float f);
+    float getMonthlyFee();
     
 private:
     float monthlyFee;
