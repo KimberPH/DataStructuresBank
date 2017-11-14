@@ -9,6 +9,7 @@ using namespace std;
 class Customer{
 	
 public:
+	explicit Customer(); //default class constructor
 	explicit Customer(const string&, const string&, const string&, const string&, vector<Account*>&, const unsigned int&);//class constructor
 	~Customer() = default; //default destructor
 	

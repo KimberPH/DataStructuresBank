@@ -4,6 +4,9 @@
 
 using namespace std;
 
+//default Class Constructor for creating empty Customer objects
+Customer::Customer(){};
+
 //Class Constructor initalizes each data member
 Customer::Customer(const string& fName, const string& lName, 
 	const string& adrs, vector<Account*>& acntList, 
@@ -22,4 +25,18 @@ void Customer::setAddress(const string& adrs){
 	address = adrs;
 }
 
-void Customer::setAccounts(vector<Account*>& 
+void Customer::setAccounts(vector<Account*>& acnt){
+	accounts = acnt;
+}
+
+void Customer::setCustomerId(const unsigned int& custId){
+	customerId = custId;
+}
+
+string Customer::getFirstName() const {return firstName;} //get First name
+string Customer::getLastName() const {return lastName;} //get the Last name
+string Customer::getAddress() const {return address;} //get the Customers address
+vector<Account*> Customer::getAccounts() const {return accounts;} //get the list of pointers to account object of the accounts associated with the indiviual customer
+unsigned int Customer::getCustomerId() const {return customerId;} //returns the customers ID number
+
+
