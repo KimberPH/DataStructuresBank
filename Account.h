@@ -8,22 +8,21 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
+#include "Customer.h"
 #include "Transaction.h"
 #include "Date.h"
 
 class Account {
 
 public:
-    //constructor
-    Account(); 
+    Account(); //default class constructor
     
     //getter functions
     long getAccountNumber();
     double getOpeningBalance() const;
     Date getDate() const;
-    vector <Customer> getCustomer();
-    vector <Transaction> getTransactionList();
-    
+    vector <Transaction*> getTransactionList();
+    vector <Customer*> getCustomer();
     
     //setter functions
     void setAccountNumber(long num);
@@ -37,7 +36,7 @@ private:
     unsigned long accountNumber;
     Date date;
     double openingBalance;
-    vector <Transaction> transactionsList;
+    vector <Transaction*> transactionsList;
     vector <Customer*> customerList;
     
 }
