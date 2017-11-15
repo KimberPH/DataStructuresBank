@@ -1,7 +1,7 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <iostream>
-//#include "bittypes.h"
+#include "bittypes.h"
 //#include "Bank.h"
 
 using namespace std;
@@ -38,7 +38,7 @@ int main(int argc, char **argv){
   }
   
   
-  u16 cmd;
+  uf16 cmd;
   while(true){
     printOptions();
     cin >> cmd;
