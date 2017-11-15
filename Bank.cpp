@@ -1,5 +1,6 @@
-#include "Bank.h"
+#include <string>
 #include <fstream>
+#include "Bank.h"
 
 Bank::Bank(){}
 
@@ -17,23 +18,56 @@ void Bank::addTransaction(double startBalance, const Date &date, const std::stri
 
 
 bool Bank::loadCustomers(const char *path){
-
+  // std::ifstream ifs(path, std::ifstream::in);
+  // if(!ifs.good()) return false;
+  
+  // while(ifs.good()){
+  //   Customer *customer = new Customer();
+  //   // TODO: get info from stream and check good
+  //   // return false if error
+  //   customers.push_back(customer);
+  // }
+  
+  // ifs.close();
+  return true;
 }
 
 bool Bank::loadAccounts(const char *path){
-
+  // std::ifstream ifs(path, std::ifstream::in);
+  // if(!ifs.good()) return false;
+  
+  // while(ifs.good()){
+  //   Account *account = new Account();
+  //   // TODO: get info from stream and check good
+  //   // return false if error
+  //   accounts.push_back(account);
+  // }
+  
+  // ifs.close();
+  return true;
 }
 
 bool Bank::loadTransactions(const char *path){
-
+  // std::ifstream ifs(path, std::ifstream::in);
+  // if(!ifs.good()) return false;
+  
+  // while(ifs.good()){
+  //   Transaction *transaction = new Transaction();
+  //   // TODO: get info from stream and check good
+  //   // return false if error
+  //   transactions.push_back(transaction);
+  // }
+  
+  // ifs.close();
+  return true;
 }
 
 std::string Bank::showAccounts() const {
-
+  
 }
 
 std::string Bank::monthlyStatement() const {
-
+  
 }
 
 float Bank::totalSavings() const {
@@ -59,11 +93,9 @@ std::string Bank::showCustomers() const {
 }
 
 bool Bank::save() const {
-  /*
-  // TODO: check for err
-  std::ofstream ofs("out.txt");
-  // TODO: write
-  ofs.close();
-  return true;
-  */
+  // // TODO: check for err
+  // std::ofstream ofs("out.txt");
+  // // TODO: write
+  // ofs.close();
+  // return true;
 }

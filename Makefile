@@ -1,9 +1,9 @@
-PROGNAME=bank
+PROGNAME=main
 CXX=g++
 CC=$(CXX)
 OPLVL=3
-FILES=$(PROGNAME).cc
-OBJS=$(FILES:.cc=.o)
+FILES=$(PROGNAME).cpp Account.cpp  Bank.cpp  Cd.cpp  Checking.cpp  Customer.cpp  Date.cpp  Deposit.cpp  Fee.cpp  main.cpp  Savings.cpp  Transaction.cpp  Withdrawl.cpp
+OBJS=$(FILES:.cpp=.o)
 STD=14
 CFLAGS=-c -O$(OPLVL) -Werror -std=c++$(STD)
 CXXFLAGS=$(CFLAGS)
@@ -11,7 +11,7 @@ CXXFLAGS=$(CFLAGS)
 all: $(OBJS)
 	$(CXX) $(OBJS) -o $(PROGNAME)
 
-%.o : %.cc
+%.o : %.cpp
 	$(CXX) $(CFLAGS) $<
 
 clean:

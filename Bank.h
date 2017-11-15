@@ -8,6 +8,7 @@ class Bank {
 private:
   std::vector<Customer*> customers;
   std::vector<Transaction*> transactions;
+  std::vector<Account*> accounts;
   
 public:
   Bank();
