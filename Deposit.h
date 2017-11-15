@@ -1,7 +1,7 @@
 //Deposit Transaction class derived from base class Transaction
 #ifndef DEPOSIT_H
 #define DEPOSIT_H
-#include "transaction.h" //base class definition
+#include "Transaction.h" //base class definition
 #include "Date.h" //date class definition
 #include <string>
 #include <iostream>

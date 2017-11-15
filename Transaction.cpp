@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "transaction.h"
+#include "Transaction.h"
 //#include "Date.cpp"
 #include "Date.h"
 #include <cmath> //include math library

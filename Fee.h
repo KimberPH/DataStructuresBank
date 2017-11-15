@@ -1,7 +1,7 @@
 // Fee class derived from base-class Transaction
 #ifndef FEE_H
 #define FEE_H
-#include "transaction.h"
+#include "Transaction.h"
 #include "Date.h"
 #include <string>
 #include <iostream>

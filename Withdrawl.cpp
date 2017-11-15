@@ -1,6 +1,6 @@
 //Withdrawl class member function definitions
 #include "Withdrawl.h"
-#include "transaction.h"
+#include "Transaction.h"
 #include "Date.h"
 #include <iostream>
 #include <string>

@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "Customer.h"
+#include "Transaction.h"
 
 class Bank {
 private:

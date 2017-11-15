@@ -1,7 +1,7 @@
 // Withdrawl class derived from base-class Transaction
 #ifndef WITHDRAWL_H
 #define WITHDRAWL_H
-#include "transaction.h"
+#include "Transaction.h"
 #include "Date.h"
 #include <string>
 #include <iostream>

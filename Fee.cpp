@@ -1,6 +1,6 @@
 // Fee class member function definitions
 #include "Fee.h"
-#include "transaction.h"
+#include "Transaction.h"
 #include "Date.h"
 #include <iostream>
 #include <string>

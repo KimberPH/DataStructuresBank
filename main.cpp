@@ -29,12 +29,16 @@ static void printOptions(){
 int main(int argc, char **argv){
   signal(SIGSEGV, signalHandler);
   
-  Bank bank;
+  //Bank bank;
 
   if(argc > 3){
+    cout << "Reading in files...\n";
     // TODO: read files
   }else{
-    // TODO: ask for input to read files
+    cout << "Enter X file: ";
+    string fp;
+    cin >> fp;
+    // TODO: read files and ask for input
   }
   
   
@@ -45,6 +49,7 @@ int main(int argc, char **argv){
     switch(cmd){
       // TODO: 
     default:
+      break;
     }
   }
   
