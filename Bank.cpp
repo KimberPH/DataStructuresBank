@@ -1,5 +1,8 @@
 #include <string>
 #include <fstream>
+#include "Account.h"
+#include "Customer.h"
+#include "Transaction.h"
 #include "Bank.h"
 
 Bank::Bank(){}
@@ -8,12 +11,12 @@ Bank::~Bank(){
   for(Customer *customer : customers)
     delete customer;
 
-  for(Tranasaction *transaction : transactions)
+  for(Transaction *transaction : transactions)
     delete transaction;
 }
 
 void Bank::addTransaction(double startBalance, const Date &date, const std::string &payee){
-  transactions.push_back(new Transaction(startBalance, date, payee));
+  //transactions.push_back(new Transaction(startBalance, date, payee));
 }
 
 
@@ -63,14 +66,20 @@ bool Bank::loadTransactions(const char *path){
 }
 
 std::string Bank::showAccounts() const {
-  
+  std::string ret = "";
+  for(Account *account: accounts){
+    ret += account->toString();
+    ret += "\n";
+  }
+
+  return ret;
 }
 
 std::string Bank::monthlyStatement() const {
   
 }
 
-float Bank::totalSavings() const {
+float Bank::totalSaving() const {
   // TODO: code to figure out what savings and then sum
 }
 

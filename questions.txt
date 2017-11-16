@@ -1,3 +1,7 @@
+What do the input files look like?
+
+
+
 What should the monthly statement consist of?
 
 What should be printed out for customer information?
@@ -7,3 +11,5 @@ What should be printed out for customer information?
 Should CD account be able to be withdrawn from?
 
 How often should CD account be charged interest?
+
+How is monthly fee determined for checking accounts?

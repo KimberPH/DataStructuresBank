@@ -14,11 +14,11 @@ class Checking : class Account{
     
 public:
     Checking();
-    void setMontlyFee(float f);
-    float getMonthlyFee();
+    void setMontlyFee(double f);
+    double getMonthlyFee();
     
 private:
-    float monthlyFee;
+    double monthlyFee;
 };
 
 #endif /* CHECKING_H */

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include "Account.h"
 #include "Customer.h"
 #include "Transaction.h"
 
@@ -23,9 +24,10 @@ public:
 
   std::string showAccounts() const;
   std::string monthlyStatement() const;
-  float totalSavings() const;
+  float totalSaving() const;
   float totalChecking() const;
   float totalCD() const;
   std::string showCustomers() const;
+  std::string customerTotals() const;
   bool save() const;
 };

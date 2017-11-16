@@ -6,7 +6,9 @@
 
 using namespace std;
 
-Account::Account(){};
+Account::Account(){
+  //in derivided, something like type = SAVINGS_TYPE;
+};
 
 //setter functions
 void Account::setAccountNumber(long num){

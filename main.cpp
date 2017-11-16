@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include "bittypes.h"
-//#include "Bank.h"
+#include "Bank.h"
 
 using namespace std;
 
@@ -29,10 +29,11 @@ static void printOptions(){
 int main(int argc, char **argv){
   signal(SIGSEGV, signalHandler);
   
-  //Bank bank;
+  Bank bank;
 
   if(argc > 3){
     cout << "Reading in files...\n";
+    
     // TODO: read files
   }else{
     cout << "Enter X file: ";
@@ -47,7 +48,30 @@ int main(int argc, char **argv){
     printOptions();
     cin >> cmd;
     switch(cmd){
-      // TODO: 
+      case 1:
+	//enter transaction
+	break;
+      case 2:
+	cout << bank.showCustomers();
+	break;
+      case 3:
+	cout << bank.monthlyStatement();
+	break; 
+      case 4:
+	cout << "Total of savings: $" << bank.totalSaving();
+	break;
+      case 5:
+	cout << "Total of checkings: $" << bank.totalChecking();
+	break;
+      case 6:
+	cout << "Total of CD: $" << bank.totalCD();
+	break;
+      case 7:
+	cout << "Customer totals:\n" << bank.customerTotals();
+	break;
+      case 8:
+	bank.save();
+	break;
     default:
       break;
     }

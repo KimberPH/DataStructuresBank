@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include "Account.h"
 
 using namespace std;
 
@@ -27,6 +28,7 @@ public:
 	vector<Account*> getAccounts() const; 
 	unsigned int getCustomerId() const;
 	
+	string toString() const;
 private:
 	string firstName;
 	string lastName;
