@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <set>
 #include <vector>
 #include "Account.h"
 #include "Customer.h"
@@ -7,9 +8,10 @@
 
 class Bank {
 private:
-  std::vector<Customer*> customers;
+  //TODO: maybe map depending on how program goes
+  std::set<Customer*> customers; //TODO: sort by customer ID
   std::vector<Transaction*> transactions;
-  std::vector<Account*> accounts;
+  std::set<Account*> accounts; //TODO: sort by account number
   
 public:
   Bank();
