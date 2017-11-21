@@ -1,0 +1,11 @@
+; start_date opening_balance account_type (maybe transactions)
+
+;savings
+10/10/2017 1000.00 s
+
+;checking
+10/10/2017 1000.00 c
+
+;CD
+10/10/2017 1000.00 C
+

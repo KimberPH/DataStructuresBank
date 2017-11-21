@@ -1,0 +1,5 @@
+; semicolons at the start of a line imply comments
+; format:
+; date transaction_type account_number amount payee
+
+10/10/2017 w 1 200.00 Pizza Hut
