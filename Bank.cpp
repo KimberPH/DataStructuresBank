@@ -21,17 +21,17 @@ void Bank::addTransaction(double startBalance, const Date &date, const std::stri
 
 
 bool Bank::loadCustomers(const char *path){
-  // std::ifstream ifs(path, std::ifstream::in);
-  // if(!ifs.good()) return false;
+  std::ifstream ifs(path, std::ifstream::in);
+  if(!ifs.good()) return false;
   
-  // while(ifs.good()){
-  //   Customer *customer = new Customer();
-  //   // TODO: get info from stream and check good
-  //   // return false if error
-  //   customers.push_back(customer);
-  // }
+  while(ifs.good()){
+    Customer *customer = new Customer();
+    // TODO: get info from stream and check good
+    // return false if error
+    customers.insert(customer);
+  }
   
-  // ifs.close();
+  ifs.close();
   return true;
 }
 
@@ -40,6 +40,7 @@ bool Bank::loadAccounts(const char *path){
   // if(!ifs.good()) return false;
   
   // while(ifs.good()){
+  //   // get account type
   //   Account *account = new Account();
   //   // TODO: get info from stream and check good
   //   // return false if error
@@ -51,17 +52,18 @@ bool Bank::loadAccounts(const char *path){
 }
 
 bool Bank::loadTransactions(const char *path){
-  // std::ifstream ifs(path, std::ifstream::in);
-  // if(!ifs.good()) return false;
+  std::ifstream ifs(path, std::ifstream::in);
+  if(!ifs.good()) return false;
   
-  // while(ifs.good()){
-  //   Transaction *transaction = new Transaction();
-  //   // TODO: get info from stream and check good
-  //   // return false if error
-  //   transactions.push_back(transaction);
-  // }
+  while(ifs.good()){
+    // get transaction type
+    // Transaction *transaction = new Transaction();
+    // TODO: get info from stream and check good
+    // return false if error
+    // transactions.push_back(transaction);
+  }
   
-  // ifs.close();
+  ifs.close();
   return true;
 }
 
@@ -91,7 +93,7 @@ float Bank::totalCD() const {
 
 }
 
-std::string Bank::showCustomers() const {
+/*std::string Bank::showCustomers() const {
   std::string ret = "";
   for(Customer *customer: customers){
     ret += customer->toString();
@@ -99,11 +101,30 @@ std::string Bank::showCustomers() const {
   }
 
   return ret;
+  }*/
+
+std::string Bank::customerTotals() const {
+  std::string ret = "";
+  for(Customer *customer : customers){
+    ret += customer->getLastName();
+    ret += ", ";
+    ret += customer->getFirstName();
+    ret += ": ";
+
+    double total = 0;
+    for(Account *account : customer->getAccounts())
+      total += account->getBalance();
+    
+    ret += total;
+  }
+  
+  return ret;
 }
 
 bool Bank::save() const {
   // // TODO: check for err
-  // std::ofstream ofs("out.txt");
+  // std::ofstream ofs("outCustomer.txt");
+  // do same for accounts and transactions
   // // TODO: write
   // ofs.close();
   // return true;

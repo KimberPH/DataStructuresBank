@@ -30,7 +30,8 @@ public:
     std::vector <Transaction*> getTransactionList();
     //vector <Customer*> getCustomer();
     AccountType getType() const;    
-
+    double getBalance() const;
+    
     //setter functions
     void setAccountNumber(long num);
     void setDate(Date d);
@@ -39,6 +40,9 @@ public:
     //void setCustomer(vector <Customer*> c);
     
     //misc functions
+    //states the initial balance, transaction that took place, and the ending balance
+    std::string monthlyStatement() const;
+
     std::string toString() const;
 private:
     unsigned long accountNumber;

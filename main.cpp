@@ -52,7 +52,7 @@ int main(int argc, char **argv){
 	//enter transaction
 	break;
       case 2:
-	cout << bank.showCustomers();
+	//cout << bank.showCustomers();
 	break;
       case 3:
 	cout << bank.monthlyStatement();
