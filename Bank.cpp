@@ -1,8 +1,13 @@
 #include <string>
 #include <fstream>
 #include "Account.h"
+#include "Savings.h"
+#include "Checking.h"
+#include "Cd.h"
+
 #include "Customer.h"
 #include "Transaction.h"
+
 #include "Bank.h"
 
 Bank::Bank(){}
@@ -36,18 +41,40 @@ bool Bank::loadCustomers(const char *path){
 }
 
 bool Bank::loadAccounts(const char *path){
-  // std::ifstream ifs(path, std::ifstream::in);
-  // if(!ifs.good()) return false;
+  std::ifstream ifs(path, std::ifstream::in);
+  if(!ifs.good()) return false;
   
-  // while(ifs.good()){
-  //   // get account type
-  //   Account *account = new Account();
-  //   // TODO: get info from stream and check good
-  //   // return false if error
-  //   accounts.push_back(account);
-  // }
-  
-  // ifs.close();
+  while(ifs.good()){
+    Date date;
+    double openingBalance;
+    char accountType;
+
+    ifs >> date;
+    if(!ifs.good()) return false;
+    ifs >> openingBalance;
+    if(!ifs.good()) return false;
+    ifs >> accountType;
+    
+    Account *account;
+    switch(accountType){
+    case 's':
+      account = new Savings();
+      break;
+    case 'c':
+      account = new Checking();
+      break;
+    case 'C':
+      account = new Cd();
+      break;
+    default:
+      ifs.close();
+      return false;
+    }
+    
+    accounts.insert(account);
+  }
+
+  ifs.close();
   return true;
 }
 

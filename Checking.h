@@ -10,7 +10,7 @@
 
 #include "Account.h"
 
-class Checking : class Account{
+class Checking : public Account{
     
 public:
     Checking();
