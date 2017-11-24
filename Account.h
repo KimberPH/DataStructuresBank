@@ -15,7 +15,7 @@
 #include "Date.h"
 
 enum AccountType {
-  SAVINGS_TYPE, CHECKING_TYPE, CD_TYPE
+  SAVINGS_ACCOUNT, CHECKING_ACCOUNT, CD_ACCOUNT
 };
 
 class Account {

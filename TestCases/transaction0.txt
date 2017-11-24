@@ -1,4 +1,5 @@
-; semicolons at the start of a line imply comments
+; semicolons at the start of a line imply comments if we get that far
+; otherwise can delete
 ; format:
 ; date transaction_type account_number amount payee
 

@@ -29,9 +29,9 @@ public:
   //need an account and date range
   std::string monthlyStatement() const;
 
-  float totalSaving() const;
-  float totalChecking() const;
-  float totalCD() const;
+  double totalSaving() const;
+  double totalChecking() const;
+  double totalCD() const;
   //std::string showCustomers() const;
   std::string customerTotals() const;
   bool save() const;

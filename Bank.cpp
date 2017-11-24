@@ -1,12 +1,17 @@
 #include <string>
 #include <fstream>
+#include "bittypes.h"
 #include "Account.h"
 #include "Savings.h"
 #include "Checking.h"
 #include "Cd.h"
 
 #include "Customer.h"
+
 #include "Transaction.h"
+#include "Withdrawl.h"
+#include "Deposit.h"
+#include "Fee.h"
 
 #include "Bank.h"
 
@@ -21,6 +26,7 @@ Bank::~Bank(){
 }
 
 void Bank::addTransaction(double startBalance, const Date &date, const std::string &payee){
+  // TODO: get transaction type as well
   //transactions.push_back(new Transaction(startBalance, date, payee));
 }
 
@@ -30,9 +36,26 @@ bool Bank::loadCustomers(const char *path){
   if(!ifs.good()) return false;
   
   while(ifs.good()){
+    std::string strin;
+    
     Customer *customer = new Customer();
-    // TODO: get info from stream and check good
-    // return false if error
+    ifs >> strin;
+    customer->setLastName(strin);
+
+    ifs >> strin;
+    customer->setFirstName(strin);
+
+    ifs >> strin;
+    if(!ifs.good()){
+      ifs.close();
+      return false;
+    }
+    
+    customer->setSSN(strin);
+
+    std::getline(ifs, strin);
+    customer->setAddress(strin);
+    
     customers.insert(customer);
   }
   
@@ -50,9 +73,12 @@ bool Bank::loadAccounts(const char *path){
     char accountType;
 
     ifs >> date;
-    if(!ifs.good()) return false;
     ifs >> openingBalance;
-    if(!ifs.good()) return false;
+    if(!ifs.good()){
+      ifs.close();
+      return false;
+    }
+    
     ifs >> accountType;
     
     Account *account;
@@ -83,11 +109,41 @@ bool Bank::loadTransactions(const char *path){
   if(!ifs.good()) return false;
   
   while(ifs.good()){
-    // get transaction type
-    // Transaction *transaction = new Transaction();
-    // TODO: get info from stream and check good
-    // return false if error
-    // transactions.push_back(transaction);
+    Date date;
+    char transactionType;
+    u64 accountNumber;
+    double amount;
+    std::string payee;
+    
+    ifs >> date;
+    ifs >> transactionType;
+    ifs >> accountNumber;
+    ifs >> amount;
+    if(!ifs.good()){
+      ifs.close();
+      return false;
+    }
+    
+    getline(ifs, payee);
+    Transaction *transaction;
+    
+    switch(transactionType){
+    case 'w':
+      transaction = new Withdrawl(amount, date, payee);
+      break;
+    case 'd':
+      transaction = new Deposit(amount, date, payee);
+      break;
+    case 'f':
+      transaction = new Fee(amount, date, payee);
+      break;
+    default:
+      ifs.close();
+      return false;
+    }
+
+    transactions.push_back(transaction);
+    // TODO: add transaction to account with corresponding account number
   }
   
   ifs.close();
@@ -105,19 +161,42 @@ std::string Bank::showAccounts() const {
 }
 
 std::string Bank::monthlyStatement() const {
+  // TODO: 
+  std::string ret = "";
+  return ret;
+}
+
+double Bank::totalSaving() const {
+  double sum = 0;
   
+  for(Account *account : accounts){
+    if(account->getType() == SAVINGS_ACCOUNT)
+      sum += account->getBalance();
+  }
+
+  return sum;
 }
 
-float Bank::totalSaving() const {
-  // TODO: code to figure out what savings and then sum
-}
-
-float Bank::totalChecking() const {
+double Bank::totalChecking() const {
+  double sum = 0;
   
+  for(Account *account : accounts){
+    if(account->getType() == CHECKING_ACCOUNT)
+      sum += account->getBalance();
+  }
+
+  return sum;
 }
 
-float Bank::totalCD() const {
+double Bank::totalCD() const {
+  double sum = 0;
+  
+  for(Account *account : accounts){
+    if(account->getType() == CD_ACCOUNT)
+      sum += account->getBalance();
+  }
 
+  return sum;
 }
 
 /*std::string Bank::showCustomers() const {
