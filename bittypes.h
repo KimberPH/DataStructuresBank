@@ -16,6 +16,11 @@ typedef int_least16_t s16;
 typedef int_least32_t s32;
 typedef int_least64_t s64;
 
+typedef uint_least8_t us8;
+typedef uint_least16_t us16;
+typedef uint_least32_t us32;
+typedef uint_least64_t us64;
+
 typedef int_fast8_t f8;
 typedef int_fast16_t f16;
 typedef int_fast32_t f32;
