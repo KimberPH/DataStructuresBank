@@ -25,9 +25,26 @@ Bank::~Bank(){
     delete transaction;
 }
 
-void Bank::addTransaction(double startBalance, const Date &date, const std::string &payee){
-  // TODO: get transaction type as well
-  //transactions.push_back(new Transaction(startBalance, date, payee));
+bool Bank::addTransaction(double startBalance, const Date &date, const std::string &payee, char transactionType, u64 accountNumber){
+  Transaction *transaction;
+
+  switch(transactionType){
+  case 'w':
+    transaction = new Withdrawl(startBalance, date, payee);
+    break;
+  case 'd':
+    transaction = new Deposit(startBalance, date, payee);
+    break;
+  case 'f':
+    transaction = new Fee(startBalance, date, payee);
+    break;
+  default:
+    return false;
+  }
+
+  transactions.push_back(transaction);
+  
+  return true;
 }
 
 
@@ -160,10 +177,16 @@ std::string Bank::showAccounts() const {
   return ret;
 }
 
-std::string Bank::monthlyStatement() const {
-  // TODO: 
-  std::string ret = "";
-  return ret;
+std::string Bank::monthlyStatement(const Date &date) const {
+  std::ostringsteam oss;
+  oss << "Monthly statement starting from " << date << std::endl;
+  oss << "Begining balance: ";
+  /*A beginning balance, all transactions that took place that month and an
+    ending balance.*/
+
+  oss << "Ending balance: ";
+  //todo:
+  return oss.str();
 }
 
 double Bank::totalSaving() const {
@@ -228,10 +251,28 @@ std::string Bank::customerTotals() const {
 }
 
 bool Bank::save() const {
-  // // TODO: check for err
-  // std::ofstream ofs("outCustomer.txt");
-  // do same for accounts and transactions
-  // // TODO: write
-  // ofs.close();
-  // return true;
+  //customers
+  std::ofstream ofs("outCustomer.txt");
+  if(!ofs.good()) return false;
+  for(Customer *customer : customers)
+    ofs << customer->saveString() << "\n";
+  
+  ofs.close();
+
+  //accounts
+  ofs.open("outAccount.txt");
+  if(!ofs.good()) return false;
+  for(Account *account : accounts)
+    ofs << account->saveString() << "\n";
+  
+  ofs.close();
+
+  //transactions
+  ofs.open("outTransactions.txt");
+  if(!ofs.good()) return false;
+  for(Transaction *transaction : transactions)
+    ofs << transaction->saveString() << "\n";
+  
+  ofs.close();
+  return true;
 }

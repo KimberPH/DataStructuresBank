@@ -1,0 +1,4 @@
+* Bank
+** monthly statment
+** input handling
+** handle errors

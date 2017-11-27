@@ -18,7 +18,7 @@ public:
   ~Bank();
 
   // TODO: add args when known
-  void addTransaction(double startBalance, const Date &date, const std::string &payee);
+  bool addTransaction(double startBalance, const Date &date, const std::string &payee, char transactionType, u64 accountNumber);
   
   bool loadCustomers(const char *path);
   bool loadAccounts(const char *path);
@@ -27,7 +27,7 @@ public:
   std::string showAccounts() const;
 
   //need an account and date range
-  std::string monthlyStatement() const;
+  std::string monthlyStatement(uf8 month, uf16 year) const;
 
   double totalSaving() const;
   double totalChecking() const;
