@@ -17,7 +17,8 @@ public:
 	
 	void setInterestRate(const double&); //set the interest rate for the account
 	
-	double getInterestRate() const; // return the associated interest amount   
+	double getInterestRate() const; // return the associated interest amount  
+	void chargeInterest(); //charge Interest to account every month, it should update the account balance
 
 private:
 	double interestRate; //interest rate data member only fo rthis savings account
